@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="svgs/eclairia-logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="dark">
     <div class="container">
 
         <header>
@@ -22,9 +22,9 @@
                     <li>
                         <a href="#">
                             <span>NOS VILLAGES</span>
-                            <img src="svgs/village.svg" alt="dropdown-icon">
+                            <img src="svgs/arrow-down.svg" alt="down Circle" class="dark dark-dropdown">
                         </a>
-                        <ul class="dropdown">
+                        <ul class="dark dropdown">
                             <li><a href="#">PARTENAIRES</a></li>
                         </ul>
                     </li>
@@ -32,7 +32,7 @@
                     <li>
                         <form action="" class="voice-search-form">
                             <div class="field-container">
-                                <input type="text" name="search-field" id="search-field" placeholder="Rechercher une voix">
+                                <input type="text" name="search-field" id="search-field" placeholder="Rechercher une voix" class="dark">
                                 <button class="search-icon"><img src="svgs/search-icon.svg" alt="search-icon"></button>
                             </div>
                         </form>
@@ -44,7 +44,7 @@
             </nav>
 
             <button class="hamburger-button"><img src="svgs/hamburger-icon.svg" alt="hamburger-icon"></button>
-
+            
         </header>
 
         <main>
@@ -57,9 +57,9 @@
                 </div>
 
                 <div class="picture-description">
-                    <div class="ellipse ellipse-1"></div>
-                    <div class="ellipse ellipse-2"></div>
-                    <div class="ellipse ellipse-3">
+                    <div class="ellipse dark ellipse-1"></div>
+                    <div class="ellipse dark ellipse-2"></div>
+                    <!-- <div class="ellipse ellipse-3">
                         <div class="user left">
                             <img src="images/leslie-alexander.png" alt="user image Leslie Alexander">
                             <p class="user-name">Leslie Alexander</p>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="user right">
                             <div class="voice-border">
-                                <img src="images/eleanor-pena.png" alt="user image Eleanor Pena" class="pena">
+                                <img src="images/Eleonor.png" alt="user image Eleanor Pena" class="pena">
                                 <img src="svgs/play-icon.svg" alt="play-icon" class="play-icon">
                             </div>
                             <p class="user-name pena">Eleanor Pena</p>
@@ -79,8 +79,38 @@
                             <img src="images/kristin-watson.png" alt="user image kristin watson">
                             <p class="user-name">Kristin Watson</p>
                         </div>
-                     </div>
-                    <img src="svgs/artificial-intelligence.svg" alt="image representing artificial intelligence" class="intelligence">
+                     </div> -->
+                    <div class="ellipse dark ellipse-3">
+                        <div class="image top">
+                            <div class="primary-border">
+                                <img src="images/jane-cooper.png" alt="image jane-cooper" class="user-image">
+                                <img src="svgs/play-icon.svg" alt="play icon" class="play-icon">
+                            </div>
+                            <p>Jane Cooper</p>
+                        </div>
+                        <div class="image right active">
+                            <div class="primary-border">
+                                <img src="images/Eleonor.png" alt="image Eleanor pena" class=" user-image pena">
+                                <img src="svgs/play-icon.svg" alt="play icon" class="play-icon">
+                            </div>
+                            <p>Eleanor Pena</p>
+                        </div>
+                        <div class="image bottom">
+                            <div class="primary-border">
+                                <img src="images/Kristin-watson.png" alt="image kristin watson" class="user-image">
+                                <img src="svgs/play-icon.svg" alt="play icon" class="play-icon">
+                            </div>
+                            <p>Kristin Watson</p>
+                        </div>
+                        <div class="image left">
+                            <div class="primary-border">
+                                <img src="images/Leslie-alexander.png" alt="image leslie-alexander" class="user-image">
+                                <img src="svgs/play-icon.svg" alt="play icon" class="play-icon">
+                            </div>
+                            <p>Leslie Alexander</p>
+                        </div>
+                    </div>
+                     <img src="svgs/artificial-intelligence.svg" alt="image representing artificial intelligence" class="intelligence">
                 </div>
             </section>
 
@@ -157,9 +187,9 @@
                 <div class="enlighten-your-friend">
                     <div class="illustrations">
                         <div class="content">
-                            <img src="images/bulb.png" alt="picture of a light bulb" class="bulb">
+                            <img src="images/bulb.png" alt="picture of a light bulb" class="bulb" title="Allume la lumière">
                             <img src="images/Saly-7.png" alt="Saly image" class="saly">
-                            <div class="box"></div>
+                            <div class="box dark"></div>
                         </div>
                     </div>
                     <p class="text">Éclairez facilement vos amis sur ce que vous pensez au plus profond de vous.</p>
@@ -170,11 +200,11 @@
             <section class="contact-section">
 
                 <div class="socials">
-                    <div class="download-logo">
-                        <button class="btn-presse">Dossier de presse</button>
+                    <div class="download-logo dark">
+                        <button class="btn-presse dark">Dossier de presse</button>
                         <p>Merci de votre intérêt pour Eclairia. Voici notre logo en haute définition pour vous.</p>
                         <div class="download">
-                            <button class="download-button"><img src="svgs/download.svg" alt="icon download"></button>
+                            <button class="download-button dark"><img src="svgs/download.svg" alt="icon download"></button>
                             <div class="file-infos">
                                 <p class="size">179,3KB</p>
                                 <p class="name">eclairia-logo.zip</p>
@@ -204,19 +234,19 @@
                         <form action="" class="newsletter">
                             <label for="mail">Rejoignez notre newsletter</label>
                             <div class="field-container">
-                                <input type="email" name="mail" id="mail" placeholder="example@mail.com">
+                                <input type="email" name="mail" id="mail" placeholder="example@mail.com" class="dark">
                                 <button class="send-mail-btn"><img src="svgs/Send.svg" alt="send icon"></button>
                             </div>
                         </form>
                         <div class="contact">
-                            <img src="svgs/email-icon.svg" alt="email-icon">
+                            <img src="svgs/email-icon.svg" alt="email-icon" class="email-icon">
                             <div class="contact-info">
                                 <p class="category">Business Inquiries</p>
                                 <p>eclairia.africa@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact">
-                            <img src="svgs/phone-icon.svg" alt="phone-icon">
+                            <img src="svgs/phone-icon.svg" alt="phone-icon" class="phone-icon">
                             <div class="contact-info">
                                 <p class="category">Telephone</p>
                                 <p>00 237 6 95 18 69 89</p>
@@ -226,7 +256,7 @@
                     
                     <div class="invest">
                         <p>Je suis investisseur</p>
-                        <button><img src="svgs/voice-icon.svg" alt="voice-icon"></button>
+                        <button><img src="svgs/voice-icon.svg" alt="voice-icon" class="voice-icon"></button>
                     </div>
 
                 </div>
@@ -243,5 +273,6 @@
         </footer>
 
     </div>
+    <script src="app.js"></script>
 </body>
 </html>

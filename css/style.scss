@@ -18,12 +18,16 @@ $color-input-search: rgba(66,86,164,1);
 $box-before-after: rgba(14,2,63,1);
 $bg-presse: rgb(0, 7, 34);
 
+$bg-body-light : rgb(245, 245, 245);
+$color-black: rgb(0, 10, 46);
+
 /************************************
         SHADOWS
 ***************************************/
 $shadow-ellipses: 0px 8px 40px rgba(0, 0, 0, 0.05), 0px 4px 12px rgba(0, 0, 0, 0.12);
 $shadow-card: 0px 4px 4px rgba(0, 0, 0, 0.25);
 $shadow-voice-btn : 0px -2px 4px rgba(0, 0, 0, 0.11), 0px 3px 10px rgba(0, 10, 46, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.12);
+$shadow-bulb : 0px -2px 18px rgba(255, 255, 255, 0.11), 0px 3px 10px rgba(255, 255, 255, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.12);
 /************************************
         GRADIENT COLORS
 ***************************************/
@@ -43,7 +47,7 @@ $card-voice: linear-gradient(0deg, rgba(241, 15, 71, 0.1), rgba(241, 15, 71, 0.1
 }
 
 @mixin font-face($family, $url) {
-    $url : "/fonts/SofiaPro-"+$url+".ttf";
+    $url : "../fonts/SofiaPro-"+$url+".ttf";
     @font-face {
         font-family: quote($family);
         src: url($url);
@@ -98,6 +102,17 @@ button {
 body {
     background-color: $bg-body;
     color: $white;
+    position: relative;
+
+    &.light {
+        background-color: $bg-body-light;
+        color: $color-black;
+    }
+
+    &.active {
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 
 /************************************
@@ -110,6 +125,7 @@ body {
 
     @media screen and (max-width: 700px){
         margin: 60px auto;
+        // position: relative;
     }
 }
 
@@ -133,6 +149,10 @@ header {
     nav {
         width: 72%;
         @include typography(16px, 500);
+
+        &.light {
+            background-color: $bg-body-light;
+        }
         .navbar {
             // border: 2px solid $primary;
             @include flexbox(center, space-between, row);
@@ -140,11 +160,13 @@ header {
             &>li:first-child {
                 // border: 2px solid $primary;
                 position: relative;
-                
+
                 a {
                     @include flexbox(center, center, row);
                     img {
-                        margin-left: 2px;
+                        margin-left: 4px;
+                        width: 22px;
+                        height: 22px;
                     }
                 }
 
@@ -157,6 +179,10 @@ header {
                     visibility: hidden;
                     transition: all .4s ease;
                     background-color: $bg-input-search;
+
+                    &.light {
+                        background-color: $white;
+                    }
 
                     li {
                         text-align: center;
@@ -186,6 +212,15 @@ header {
                         @include typography(18px, 400);
                         color: $color-input-search;
                         background-color: $bg-input-search;
+
+                        &.light {
+                            background-color: $white;
+                            color: $color-black;
+
+                            &::placeholder{
+                                color: $color-black;
+                            }
+                        }
 
                         &::placeholder {
                             color: $color-input-search;
@@ -218,12 +253,48 @@ header {
     }
 
     @media screen and (max-width: 700px){
+        .logo {
+            // border: 2px solid $primary;
+            img {
+                width: 24px;
+                height: 34px;
+            }
+            .text-logo {
+                @include typography(22px, 600);
+            }
+        }
+
         nav {
-            display: none;
+            transform: scale(0);
+            transition: transform .2s ease;
+
+            &.active {
+                transform: scale(1);
+            }
+            width: 92%;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            @include flexbox(center, center, row);
+            background-color: rgba(0, 0, 46, .92);
+            z-index: 1000;
+            .navbar {
+                @include flexbox(center, space-between, column);
+                height: 50%;
+                width: 100%;
+            }
         }
 
         .hamburger-button {
             display: block;
+            z-index: 1500;
+        }
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            background-color: $primary;
+            width: 100%;
+            height: 100%;
         }
     }
 }
@@ -275,65 +346,82 @@ main {
                 border-radius: 50%;
                 box-shadow: $shadow-ellipses;
                 position: absolute;
+
+                
             }
             .ellipse-1 {
                 background-color: $bg-ellipse3;
                 width: 100%;
                 height: 100%;
+                &.light {
+                    background-color: $white;
+                }
             }
             .ellipse-2 {
                 background-color: $bg-ellipse3;
                 width: 73%;
                 height: 73%;
+                &.light {
+                    background-color: $white;
+                }
             }
             .ellipse-3 {
                 background-color: $bg-ellipse1;
                 width: 48%;
                 height: 48%;
+                &.light {
+                    background-color: $white;
+                }
 
-                .user {
-                    // border: 2px solid blue;
+                .image {
+                    // border: 2px solid $primary;
                     @include flexbox(center, center, column);
                     position: absolute;
+                    cursor: pointer;
 
                     &.left {
                         @include position(-55%, 50%, auto, auto, y);
                     }
-                    &.top{
+                    &.top {
                         @include position(50%, -55%, auto, auto, x);
                     }
                     &.right {
                         @include position(auto, 50%, -55%, auto, y);
                     }
-                    &.bottom{
+                    &.bottom {
                         @include position(50%, auto, auto, -55%, x);
                     }
 
-                    .voice-border {
-                        border: 4px solid $primary;
-                        border-radius: 50%;
-                        position: relative;
-                     
-                        .play-icon {
-                            background-color: $primary;
-                            border: none;
-                            position: absolute;
-                            @include position(50%, auto, auto, -10px, x);
-                        }
+                    p {
+                        margin-top: 5px;
                     }
-                    img {
+
+                    .user-image {
                         border-radius: 50%;
                         border: 3px solid $border-image;
                     }
-                    .user-name {
-                        @include typography(16px, 500);
-                        width: max-content;
+                    .play-icon {
+                        display: none;
+                    }
+                    &.active {
 
-                        &.pena{
-                            @include typography(20px, 500);
+                        .primary-border {
+                            border: 4px solid $primary;
+                            position: relative;
+                            border-radius: 50%;
+                            @include flexbox(center, center, row);
+    
+                            .play-icon{
+                                display: block;
+                                background-color: $primary;
+                                border-radius: 50%;
+                                position: absolute;
+                                @include position(50%, auto, auto, -15%, x);
+                            }
                         }
                     }
                 }
+               
             }
             .intelligence {
                 z-index: 2;
@@ -365,26 +453,32 @@ main {
 
             .picture-description {
                 width: 100%;
-                height: 337px;
+                height: 335px;
+    
+                .ellipse-3 {
+                    // border: 2px solid $primary;
+                    .image {
+                        
+                        &.left, &.top, &.bottom {
+                            // border: 2px solid $primary;
+                            img.user-image {
+                                width: 64px;
+                                height: 64px;
+                            }
+                        }
+                        &.right {
+                            img.user-image {
+                                width: 72px;
+                                height: 72px;
+                            }
+                        }
 
-                .left, .top, .bottom {
-                    img {
-                        width: 64px;
-                        height: 64px;
-                    }   
-                }
-                .right {
-                    img.pena {
-                        width: 72px;
-                        height: 72px;
+                        p {
+                            width: max-content;
+                            @include typography(13px, 500);
+                        }
                     }
-                }
-                
-                .user-name {
-                    @include typography(12px, 500);
-                    &.pena{
-                        @include typography(18px, 500);
-                    }
+                   
                 }
                 .intelligence {
                     width: 45%;
@@ -510,12 +604,20 @@ main {
                         z-index: 20;
 
                         &.bulb {
-                            top: 45px;
+                            top: 35px;
+                            cursor: pointer;
+                            z-index: 30;
+
+                            &:hover {
+                                box-shadow: $shadow-bulb;
+                                border-radius: 50%;
+                            }
                         }
                         &.saly {
                             // border: 2px solid blue;
                             width: 100%;
                             height: 100%;
+                            @include flexbox(center, center, row);
                         }
                     }
 
@@ -529,6 +631,14 @@ main {
                         border-radius: 44px;
                         // z-index: -1;
 
+                        &.light {
+                            background-color: $white;
+
+                            &::after, &::before {
+                                    background-color: rgba(196, 196, 196, 0.5);
+                            }
+                        }
+
                         &::after, &::before {
                             content: "";
                             position: absolute;
@@ -538,6 +648,8 @@ main {
                             border-radius: inherit;
                             filter: blur(12px);
                             z-index: -10;
+
+                            
                         }
 
                         &::after {
@@ -617,12 +729,20 @@ main {
                 @include flexbox(flex-start, space-between, column);
                 margin-bottom: 64px;
 
+                &.light {
+                    background-color: $white;
+                }
+
                 .btn-presse {
                     background-color: $primary;
                     color: $white;
                     padding: 8px;
                     @include typography(18px, 600);
                     border-radius: 14px;
+
+                    &.light {
+                        color: $color-black;
+                    }
                 }
 
                 p {
@@ -701,6 +821,14 @@ main {
                             background-color: $bg-input-email;
                             @include typography(16px, 600);
                             color: $color-input-email;
+
+                            &.light {
+                                color: $white;
+                                
+                                &::placeholder {
+                                    color: $white;
+                                }
+                            }
 
                             &::placeholder {
                                 color: $color-input-email;
